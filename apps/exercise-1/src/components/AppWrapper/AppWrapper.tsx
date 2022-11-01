@@ -1,6 +1,7 @@
 import { Fragment, FC } from 'react';
 import { Global, css } from '@emotion/react';
 import emotionReset from 'emotion-reset';
+import { BrowserRouter } from 'react-router-dom';
 
 interface IAppWrapperProps {
   children: React.ReactNode;
@@ -24,6 +25,6 @@ export const AppWrapper: FC<IAppWrapperProps> = ({ children }) => (
         }
       `}
     />
-    {children}
+    <BrowserRouter>{children}</BrowserRouter>
   </Fragment>
 );

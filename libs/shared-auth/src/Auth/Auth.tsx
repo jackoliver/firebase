@@ -73,7 +73,11 @@ function useProvideAuth() {
   };
 
   const login = ({ email, password }: LoginArguments) => {
-    return signInWithEmailAndPassword(getAuth(), email, password);
+    return signInWithEmailAndPassword(getAuth(), email, password)
+      .then((response) => {
+        window.location.href = '/';
+      })
+      .catch(console.error);
   };
 
   const logout = () => {
