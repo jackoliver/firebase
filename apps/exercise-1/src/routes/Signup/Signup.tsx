@@ -3,21 +3,23 @@ import { useAuth } from '@fb/shared-auth';
 import { Link, Navigate } from 'react-router-dom';
 
 const INITIAL_VALUES = {
+  firstName: '',
+  lastName: '',
   email: '',
   password: '',
 };
 
-export const Login = () => {
-  const { user, login } = useAuth();
+export const Signup = () => {
+  const { createAccount, user } = useAuth();
   const [values, setValues] = useState({
     ...INITIAL_VALUES,
   });
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    // Replace me with a call to the AuthProvider's login method
+    // Replace me with a call to the AuthProvider's createAccount method
     alert(JSON.stringify(values));
-    login(values);
+    createAccount(values);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,11 +38,24 @@ export const Login = () => {
     <form onSubmit={handleSubmit}>
       <input
         onChange={handleChange}
+        name="firstName"
+        value={values.firstName}
+        type="text"
+        placeholder="First name"
+      />
+      <input
+        onChange={handleChange}
+        name="lastName"
+        value={values.lastName}
+        type="text"
+        placeholder="Last name"
+      />
+      <input
+        onChange={handleChange}
         name="email"
         value={values.email}
         type="email"
         placeholder="Email"
-        required
       />
       <input
         onChange={handleChange}
@@ -48,10 +63,9 @@ export const Login = () => {
         value={values.password}
         type="password"
         placeholder="Password"
-        required
       />
-      <button>Log in</button>
-      <Link to="/signup">Create an account</Link>
+      <button>Sign up</button>
+      <Link to="/login">Already have an account? Log in</Link>
     </form>
   );
 };
