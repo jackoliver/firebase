@@ -9,6 +9,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { Loader } from '@mantine/core';
 
 import { firebaseConfig } from '@fb/shared-config';
 
@@ -39,7 +40,20 @@ export const Auth: React.FC<IAuthProps> = ({ children }) => {
   const auth = useProvideAuth();
   return (
     <authContext.Provider value={auth}>
-      {auth.user === null ? <div>Loading...</div> : children}
+      {auth.user === null ? (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '100vh',
+          }}
+        >
+          <Loader size="xl" />
+        </div>
+      ) : (
+        children
+      )}
     </authContext.Provider>
   );
 };
