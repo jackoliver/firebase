@@ -1,5 +1,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import { Auth } from '@fb/shared-auth';
+import { AppWrapper } from 'components';
 
 import App from './app/app';
 
@@ -8,6 +10,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <App />
+    <AppWrapper>
+      <Auth>
+        <App />
+      </Auth>
+    </AppWrapper>
   </StrictMode>
 );

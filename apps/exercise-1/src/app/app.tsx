@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { PrivateRoute } from 'src/components/PrivateRoute';
 import { Login, PrivateView, Signup } from 'routes';
+import { PrivateRoute } from 'components';
 
 export function App() {
   return (

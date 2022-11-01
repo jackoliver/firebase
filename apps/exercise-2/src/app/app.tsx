@@ -1,15 +1,21 @@
-import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { Route, Routes } from 'react-router-dom';
+import { PrivateRoute } from 'components';
+import { Login, PrivateView, Signup } from 'routes';
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="exercise-2" />
-    </StyledApp>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <PrivateView />
+          </PrivateRoute>
+        }
+      />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
   );
 }
 
