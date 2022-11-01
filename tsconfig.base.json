@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fb/shared-auth": ["libs/shared-auth/src/index.ts"],
+      "@fb/shared-config": ["libs/shared-config/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

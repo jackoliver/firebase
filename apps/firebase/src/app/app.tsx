@@ -1,16 +1,7 @@
-import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { AppWrapper } from 'components';
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="firebase" />
-    </StyledApp>
-  );
+  return <AppWrapper>This is the appwrapper</AppWrapper>;
 }
 
 export default App;
