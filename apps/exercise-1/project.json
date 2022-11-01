@@ -1,7 +1,7 @@
 {
-  "name": "firebase",
+  "name": "exercise-1",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/firebase/src",
+  "sourceRoot": "apps/exercise-1/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,13 +10,16 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/firebase",
-        "index": "apps/firebase/src/index.html",
+        "outputPath": "dist/apps/exercise-1",
+        "index": "apps/exercise-1/src/index.html",
         "baseHref": "/",
-        "main": "apps/firebase/src/main.tsx",
-        "polyfills": "apps/firebase/src/polyfills.ts",
-        "tsConfig": "apps/firebase/tsconfig.app.json",
-        "assets": ["apps/firebase/src/favicon.ico", "apps/firebase/src/assets"],
+        "main": "apps/exercise-1/src/main.tsx",
+        "polyfills": "apps/exercise-1/src/polyfills.ts",
+        "tsConfig": "apps/exercise-1/tsconfig.app.json",
+        "assets": [
+          "apps/exercise-1/src/favicon.ico",
+          "apps/exercise-1/src/assets"
+        ],
         "styles": [],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -31,8 +34,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/firebase/src/environments/environment.ts",
-              "with": "apps/firebase/src/environments/environment.prod.ts"
+              "replace": "apps/exercise-1/src/environments/environment.ts",
+              "with": "apps/exercise-1/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -48,15 +51,15 @@
       "executor": "@nrwl/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "firebase:build",
+        "buildTarget": "exercise-1:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "firebase:build:development"
+          "buildTarget": "exercise-1:build:development"
         },
         "production": {
-          "buildTarget": "firebase:build:production",
+          "buildTarget": "exercise-1:build:production",
           "hmr": false
         }
       }
@@ -65,14 +68,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/firebase/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/exercise-1/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/firebase/jest.config.ts",
+        "jestConfig": "apps/exercise-1/jest.config.ts",
         "passWithNoTests": true
       }
     }

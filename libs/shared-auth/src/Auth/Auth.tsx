@@ -11,18 +11,14 @@ import {
 } from 'firebase/auth';
 
 import { firebaseConfig } from '@fb/shared-config';
-// import { Loader } from '@firecord/shared-components';
 
 import {
   CreateAccountArguments,
   UserContextProps,
   LoginArguments,
   UserState,
+  IAuthProps,
 } from './types';
-
-interface IAuthProps {
-  children: React.ReactNode;
-}
 
 initializeApp(firebaseConfig);
 

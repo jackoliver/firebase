@@ -8,12 +8,12 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/firebase-e2e/cypress.config.ts",
-        "devServerTarget": "firebase:serve:development",
+        "devServerTarget": "exercise-1:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "firebase:serve:production"
+          "devServerTarget": "exercise-1:serve:production"
         }
       }
     },
@@ -26,5 +26,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["firebase"]
+  "implicitDependencies": ["exercise-1"]
 }

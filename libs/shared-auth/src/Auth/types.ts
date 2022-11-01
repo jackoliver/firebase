@@ -2,6 +2,9 @@ import { User } from 'firebase/auth';
 
 export type UserState = User | false | null;
 
+export interface IAuthProps {
+  children: React.ReactNode;
+}
 export interface CreateAccountArguments {
   firstName: string;
   lastName: string;
