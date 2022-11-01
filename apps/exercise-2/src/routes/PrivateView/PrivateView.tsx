@@ -4,24 +4,24 @@ import { Button, Input } from '@mantine/core';
 import { Header } from 'components';
 
 const styles = css`
-  background: #f3f3f3;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 64px);
   width: 100vw;
 
   .chat-content {
-    background: red;
+    background: #f3f3f3;
     flex: 1 0 auto;
     padding: 16px;
-    height: calc(100vh - 128px);
+    height: calc(100vh - 144px);
   }
 
   .chat-input {
     margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 8px;
-    height: 64px;
+    height: 80px;
     align-items: center;
     padding: 0 16px;
 
@@ -45,7 +45,7 @@ export const PrivateView = () => {
           <Input
             size="lg"
             width="100%"
-            placeholder="Type your message and press enter..."
+            placeholder="JackOliver: Type your message and press enter..."
             autoFocus
           />
           <Button size="lg">Send</Button>
