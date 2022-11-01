@@ -9,13 +9,23 @@ const STYLES = css`
   justify-content: space-between;
   padding: 0 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 `;
 export const Header = () => {
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
+
   return (
     <header css={STYLES}>
       <h3>Exercise 2: Firestore</h3>
-      <Button onClick={() => logout()}>Log out</Button>
+      <div>
+        {user && <p>Welcome, {user.displayName}</p>}
+        <Button onClick={() => logout()}>Log out</Button>
+      </div>
     </header>
   );
 };
