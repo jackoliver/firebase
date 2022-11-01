@@ -14,7 +14,9 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "components": ["./src/components"]
+      "components": ["./src/components"],
+      "@fb/shared-auth": ["../../libs/shared-auth/src/index.ts"],
+      "@fb/shared-config": ["../../libs/shared-config/src/index.ts"]
     }
   },
   "files": [],

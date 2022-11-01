@@ -10,8 +10,8 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 
-import { firebaseConfig } from '@firecord/shared-config';
-import { Loader } from '@firecord/shared-components';
+import { firebaseConfig } from '@fb/shared-config';
+// import { Loader } from '@firecord/shared-components';
 
 import {
   CreateAccountArguments,
@@ -19,6 +19,10 @@ import {
   LoginArguments,
   UserState,
 } from './types';
+
+interface IAuthProps {
+  children: React.ReactNode;
+}
 
 initializeApp(firebaseConfig);
 
@@ -35,11 +39,11 @@ const authContext = createContext<UserContextProps>({
   },
 });
 
-export const Auth: React.FC = ({ children }) => {
+export const Auth: React.FC<IAuthProps> = ({ children }) => {
   const auth = useProvideAuth();
   return (
     <authContext.Provider value={auth}>
-      {auth.user === null ? <Loader /> : children}
+      {auth.user === null ? <div>Loading...</div> : children}
     </authContext.Provider>
   );
 };

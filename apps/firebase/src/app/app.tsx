@@ -1,7 +1,5 @@
-import { AppWrapper } from 'components';
-
 export function App() {
-  return <AppWrapper>This is the appwrapper</AppWrapper>;
+  return <div>This is the application.</div>;
 }
 
 export default App;
