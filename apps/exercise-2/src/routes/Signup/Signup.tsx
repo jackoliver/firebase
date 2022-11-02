@@ -13,7 +13,6 @@ const INITIAL_VALUES = {
 
 const STYLES = {
   base: css`
-    background: #f3f3f3;
     min-height: 100vh;
     width: 100vw;
     display: flex;
