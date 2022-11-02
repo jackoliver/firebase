@@ -71,7 +71,12 @@ export const ChatWindow = () => {
       {/* This is where we display messages */}
       {hasMessages &&
         messagesData.map((messageItem: IMessageItem) => (
-          <ChatMessage key={messageItem.id}>{messageItem.message}</ChatMessage>
+          <ChatMessage
+            displayName={messageItem.displayName}
+            key={messageItem.id}
+          >
+            {messageItem.message}
+          </ChatMessage>
         ))}
     </div>
   );
