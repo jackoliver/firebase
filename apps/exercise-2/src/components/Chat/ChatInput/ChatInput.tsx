@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEventHandler } from 'react';
 import { Input, Button } from '@mantine/core';
 
-import { getFirestore, collection, addDoc } from '@firebase/firestore';
+import { getFirestore } from '@firebase/firestore';
 
 import { useAuth } from '@fb/shared-auth';
 
@@ -16,9 +16,8 @@ export const ChatInput = () => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     // Prevent the default page refresh
     e.preventDefault();
-    // Send the message to firestore
-    const db = getFirestore();
-    const messagesCollection = collection(db, 'messages');
+
+    // Create the message object
     const message = user
       ? {
           message: inputValue,
@@ -26,11 +25,18 @@ export const ChatInput = () => {
           timestamp: new Date().toISOString(),
         }
       : null;
+
     if (message) {
-      addDoc(messagesCollection, message);
+      // Get the firestore instance
+      const db = getFirestore();
+
+      // Create a reference to the messages collection
+
+      // Add the message to the collection
+
+      // Reset the input value
+      setInputValue('');
     }
-    // Reset the input value
-    setInputValue('');
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
