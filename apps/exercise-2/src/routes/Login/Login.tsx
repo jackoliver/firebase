@@ -83,7 +83,7 @@ export const Login = () => {
           placeholder="Password"
           required
         />
-        <Button size="md" type="submit" fullWidth>
+        <Button variant="gradient" size="md" type="submit" fullWidth>
           Log in
         </Button>
         <Link to="/signup">Create an account</Link>

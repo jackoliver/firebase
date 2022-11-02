@@ -85,7 +85,7 @@ export const Login = () => {
           size="md"
           required
         />
-        <Button type="submit" fullWidth size="md">
+        <Button variant="gradient" type="submit" fullWidth size="md">
           Log in
         </Button>
         <Link to="/signup">Create an account</Link>

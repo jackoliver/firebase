@@ -101,7 +101,7 @@ export const Signup = () => {
           placeholder="Password"
           size="md"
         />
-        <Button type="submit" size="md" fullWidth>
+        <Button variant="gradient" type="submit" size="md" fullWidth>
           Sign up
         </Button>
         <Link to="/login">Already have an account? Log in</Link>

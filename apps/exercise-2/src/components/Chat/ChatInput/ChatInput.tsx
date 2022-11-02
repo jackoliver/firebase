@@ -11,7 +11,7 @@ const STYLES = css`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 8px;
-  height: 80px;
+  height: 64px;
   align-items: center;
   padding: 0 16px;
 
@@ -58,14 +58,16 @@ export const ChatInput = () => {
     <div css={STYLES}>
       <form onSubmit={handleSubmit}>
         <Input
-          size="lg"
+          size="md"
           width="100%"
           placeholder="Type your message and press enter..."
           autoFocus
           onChange={handleChange}
           value={inputValue}
         />
-        <Button size="lg">Send</Button>
+        <Button variant="gradient" size="md">
+          Send
+        </Button>
       </form>
     </div>
   );

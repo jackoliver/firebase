@@ -23,7 +23,7 @@ const STYLES = css`
   background: #f3f3f3;
   flex: 1 0 auto;
   padding: 16px;
-  height: calc(100vh - 144px);
+  height: calc(100vh - 128px);
   overflow-y: auto;
 
   display: flex;
@@ -59,7 +59,12 @@ export const ChatWindow = () => {
     // Set scroll distance of chat to bottom
     const chat = document.getElementById('chat');
     if (chat) {
-      chat.scrollTop = chat.scrollHeight;
+      // Smooth scroll
+      chat.scrollTo({
+        top: chat.scrollHeight,
+        behavior: 'smooth',
+      });
+      // chat.scrollTop = chat.scrollHeight;
     }
   }, [messagesData]);
 

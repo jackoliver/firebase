@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import { css } from '@emotion/react';
-import { Avatar, Tooltip } from '@mantine/core';
+import { Avatar, Tooltip, useMantineTheme } from '@mantine/core';
 interface IChatMessageProps {
   children: string;
   displayName?: string;
@@ -22,15 +23,28 @@ const concatDisplayName = (string: string) =>
     .map((word) => word[0])
     .join('');
 
-export const ChatMessage = ({ children, displayName }: IChatMessageProps) => (
-  <div css={STYLES}>
-    {displayName && (
-      <Tooltip label={displayName} withArrow>
-        <Avatar radius="xl" color="cyan">
-          {concatDisplayName(displayName)}
-        </Avatar>
-      </Tooltip>
-    )}
-    <p>{children}</p>
-  </div>
-);
+export const ChatMessage = ({ children, displayName }: IChatMessageProps) => {
+  const { colors } = useMantineTheme();
+  console.log(Object.keys(colors));
+
+  const randomColor = useMemo(
+    () =>
+      Object.keys(colors)[
+        Math.floor(Math.random() * Object.keys(colors).length)
+      ],
+    []
+  );
+
+  return (
+    <div css={STYLES}>
+      {displayName && (
+        <Tooltip color={randomColor} label={displayName} withArrow>
+          <Avatar radius="xl" color={randomColor}>
+            {concatDisplayName(displayName)}
+          </Avatar>
+        </Tooltip>
+      )}
+      <p>{children}</p>
+    </div>
+  );
+};

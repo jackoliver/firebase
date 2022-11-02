@@ -24,7 +24,9 @@ export const Header = () => {
       <h3>Exercise 2: Firestore</h3>
       <div>
         {user && <p>Welcome, {user.displayName}</p>}
-        <Button onClick={() => logout()}>Log out</Button>
+        <Button variant="gradient" onClick={() => logout()}>
+          Log out
+        </Button>
       </div>
     </header>
   );
