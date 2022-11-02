@@ -73,6 +73,7 @@ export const Login = () => {
           value={values.email}
           type="email"
           placeholder="Email"
+          size="md"
           required
         />
         <Input
@@ -81,9 +82,10 @@ export const Login = () => {
           value={values.password}
           type="password"
           placeholder="Password"
+          size="md"
           required
         />
-        <Button type="submit" fullWidth>
+        <Button type="submit" fullWidth size="md">
           Log in
         </Button>
         <Link to="/signup">Create an account</Link>

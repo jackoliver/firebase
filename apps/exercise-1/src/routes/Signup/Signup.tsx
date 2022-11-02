@@ -75,6 +75,7 @@ export const Signup = () => {
           value={values.firstName}
           type="text"
           placeholder="First name"
+          size="md"
         />
         <Input
           onChange={handleChange}
@@ -82,6 +83,7 @@ export const Signup = () => {
           value={values.lastName}
           type="text"
           placeholder="Last name"
+          size="md"
         />
         <Input
           onChange={handleChange}
@@ -89,6 +91,7 @@ export const Signup = () => {
           value={values.email}
           type="email"
           placeholder="Email"
+          size="md"
         />
         <Input
           onChange={handleChange}
@@ -96,8 +99,9 @@ export const Signup = () => {
           value={values.password}
           type="password"
           placeholder="Password"
+          size="md"
         />
-        <Button type="submit" fullWidth>
+        <Button type="submit" size="md" fullWidth>
           Sign up
         </Button>
         <Link to="/login">Already have an account? Log in</Link>
