@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { css } from '@emotion/react';
 
 import {
   DocumentData,
@@ -10,16 +9,11 @@ import {
   onSnapshot,
 } from '@firebase/firestore';
 
-import { ChatMessage } from '../ChatMessage';
 import { ZeroMessages } from 'components';
-import styles from './ChatWindow.styles';
 
-interface IMessageItem {
-  id: string;
-  message: string;
-  displayName: string;
-  timestamp: Date;
-}
+import { ChatMessage } from '../ChatMessage';
+import styles from './ChatWindow.styles';
+import { IMessageItem } from './types';
 
 export const ChatWindow = () => {
   // State variable to store messages (set in useEffect)
