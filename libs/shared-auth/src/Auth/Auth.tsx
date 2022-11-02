@@ -36,24 +36,24 @@ const authContext = createContext<UserContextProps>({
   },
 });
 
+const LoadMe = () => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '100vh',
+    }}
+  >
+    <Loader size="xl" />
+  </div>
+);
+
 export const Auth: React.FC<IAuthProps> = ({ children }) => {
   const auth = useProvideAuth();
   return (
     <authContext.Provider value={auth}>
-      {auth.user === null ? (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '100vh',
-          }}
-        >
-          <Loader size="xl" />
-        </div>
-      ) : (
-        children
-      )}
+      {auth.user === null ? <LoadMe /> : children}
     </authContext.Provider>
   );
 };
