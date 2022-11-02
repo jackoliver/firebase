@@ -7,7 +7,13 @@ interface IAppWrapperProps {
 }
 
 export const AppWrapper: FC<IAppWrapperProps> = ({ children }) => (
-  <MantineProvider withGlobalStyles withNormalizeCSS>
+  <MantineProvider
+    withGlobalStyles
+    withNormalizeCSS
+    // theme={{
+    //   colorScheme: 'dark',
+    // }}
+  >
     <BrowserRouter>{children}</BrowserRouter>
   </MantineProvider>
 );

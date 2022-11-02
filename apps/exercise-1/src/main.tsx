@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { Auth } from '@fb/shared-auth';
-import { AppWrapper } from 'components';
+import { AppWrapper } from '@fb/shared-components';
 
 import App from './app/app';
 

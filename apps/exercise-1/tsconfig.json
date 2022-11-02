@@ -17,6 +17,7 @@
       "components": ["./src/components"],
       "routes": ["./src/routes"],
       "@fb/shared-auth": ["../../libs/shared-auth/src/index.ts"],
+      "@fb/shared-components": ["../../libs/shared-components/src/index.ts"],
       "@fb/shared-config": ["../../libs/shared-config/src/index.ts"]
     }
   },

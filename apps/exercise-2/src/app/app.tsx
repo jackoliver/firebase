@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import { PrivateRoute } from 'components';
 import { Login, PrivateView, Signup } from 'routes';
+
+import { PrivateRoute } from '@fb/shared-components';
 
 export function App() {
   return (

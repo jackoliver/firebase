@@ -1,1 +1,2 @@
-export * from './lib/shared-components';
+export * from './AppWrapper';
+export * from './PrivateRoute';
