@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Box } from '@mantine/core';
 import { Header, Chat } from 'components';
 
 const styles = css`
@@ -11,10 +12,10 @@ const styles = css`
 export const PrivateView = () => (
   <>
     <Header />
-    <div css={styles}>
+    <Box css={styles}>
       {/* We display messages inside this component */}
       <Chat.Window />
       <Chat.Input />
-    </div>
+    </Box>
   </>
 );

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Button } from '@mantine/core';
+import { Box, Button, Text } from '@mantine/core';
 import { useAuth } from '@fb/shared-auth';
 
 const STYLES = css`
@@ -9,11 +9,12 @@ const STYLES = css`
   justify-content: space-between;
   padding: 0 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
 
   div {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
   }
 `;
 export const Header = () => {
@@ -22,12 +23,16 @@ export const Header = () => {
   return (
     <header css={STYLES}>
       <h3>Exercise 2: Firestore</h3>
-      <div>
-        {user && <p>Welcome, {user.displayName}</p>}
+      <Box>
+        {user && (
+          <Text size="sm" weight="bold">
+            Welcome, {user.displayName}
+          </Text>
+        )}
         <Button variant="gradient" onClick={() => logout()}>
           Log out
         </Button>
-      </div>
+      </Box>
     </header>
   );
 };

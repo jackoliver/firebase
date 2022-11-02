@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { useAuth } from '@fb/shared-auth';
-import { Button, Text, Title } from '@mantine/core';
+import { Button, Title } from '@mantine/core';
 import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 
