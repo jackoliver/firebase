@@ -1,28 +1,11 @@
 import { useState, ChangeEvent, FormEventHandler } from 'react';
-import { css } from '@emotion/react';
 import { Input, Button } from '@mantine/core';
 
 import { getFirestore, collection, addDoc } from '@firebase/firestore';
 
 import { useAuth } from '@fb/shared-auth';
 
-const STYLES = css`
-  margin-top: auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 8px;
-  height: 64px;
-  align-items: center;
-  padding: 0 16px;
-
-  .mantine-Input-wrapper {
-    flex: 1 0 auto;
-  }
-
-  form {
-    display: contents;
-  }
-`;
+import styles from './ChatInput.styles';
 
 export const ChatInput = () => {
   const { user } = useAuth();
@@ -55,7 +38,7 @@ export const ChatInput = () => {
   };
 
   return (
-    <div css={STYLES}>
+    <div css={styles}>
       <form onSubmit={handleSubmit}>
         <Input
           size="md"
