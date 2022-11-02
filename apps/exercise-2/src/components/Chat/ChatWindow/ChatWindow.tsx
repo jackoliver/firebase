@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import {
-  DocumentData,
-  query,
-  collection,
-  getFirestore,
-  orderBy,
-  onSnapshot,
-} from '@firebase/firestore';
+import { DocumentData, getFirestore } from '@firebase/firestore';
 
 import { ZeroMessages } from 'components';
 
@@ -20,35 +13,24 @@ export const ChatWindow = () => {
   const [messagesData, setMessagesData] = useState<DocumentData | []>([]);
 
   useEffect(() => {
-    // Query messages collection ordered by timestamp
-    const messagesCollection = query(
-      collection(getFirestore(), 'messages'),
-      orderBy('timestamp', 'asc')
-    );
+    // Get the firestore instance
+    const db = getFirestore();
+    // Query 'messages' collection ordered by timestamp (asc)
 
-    // Subscribe to messages collection
-    const unsubscribe = onSnapshot(messagesCollection, (snapshot) => {
-      const messages = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setMessagesData(messages);
-    });
+    // Subscribe to messages collection (use onSnapshot) and set the messagesData state variable
 
-    // Cleanup function to unsubscribe from the listener
-    return () => unsubscribe();
+    // Don't forget a cleanup function to unsuscribe from the collection
   }, []);
 
   useEffect(() => {
     // Set scroll distance of chat to bottom
     const chat = document.getElementById('chat');
+
     if (chat) {
-      // Smooth scroll
       chat.scrollTo({
         top: chat.scrollHeight,
         behavior: 'smooth',
       });
-      // chat.scrollTop = chat.scrollHeight;
     }
   }, [messagesData]);
 
