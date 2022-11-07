@@ -42,7 +42,7 @@ const STYLES = {
 
 export const Signup = () => {
   // TODO: use the useAuth hook to get the createAccount function
-  const { user } = useAuth();
+  const { user, createAccount } = useAuth();
   const [values, setValues] = useState({
     ...INITIAL_VALUES,
   });
@@ -50,7 +50,7 @@ export const Signup = () => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     // Replace me with a call to the AuthProvider's createAccount method
-    alert(JSON.stringify(values));
+    createAccount(values);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

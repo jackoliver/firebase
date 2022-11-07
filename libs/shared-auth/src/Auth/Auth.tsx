@@ -77,16 +77,22 @@ function useProvideAuth() {
     const auth = getAuth();
 
     // Create the user, then (important keyword!!) update the user's profile with their first and last name (you can use `displayName`)
-
-    // Bonus points: redirect the user to the home page after they create their account
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then((response) => {
+        updateProfile(response.user, {
+          displayName: `${firstName} ${lastName}`,
+        });
+      })
+      .catch(console.error);
   };
 
   const login = ({ email, password }: LoginArguments) => {
     // Get the auth instance
     const auth = getAuth();
     // Sign in with email and pass (do something with the resolved Promise – and don't forget to catch errors)
-
-    // Bonus points: redirect to the home page after login
+    return signInWithEmailAndPassword(auth, email, password).catch(
+      console.error
+    );
   };
 
   const logout = () => signOut(getAuth()).catch(console.error);

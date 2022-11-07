@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEventHandler } from 'react';
 import { Input, Button } from '@mantine/core';
 
-import { getFirestore } from '@firebase/firestore';
+import { getFirestore, collection, addDoc } from '@firebase/firestore';
 
 import { useAuth } from '@fb/shared-auth';
 
@@ -30,12 +30,16 @@ export const ChatInput = () => {
       // Get the firestore instance
       const db = getFirestore();
 
-      // Create a reference to the messages collection
+      // Create a reference to the 'messages' collection
+      const messagesCollection = collection(db, 'messages');
 
-      // Add the message to the collection
-
-      // Reset the input value
-      setInputValue('');
+      // Add the message to the 'messages' collection
+      addDoc(messagesCollection, message)
+        .then(() => {
+          // Reset the input value
+          setInputValue('');
+        })
+        .catch(console.error);
     }
   };
 

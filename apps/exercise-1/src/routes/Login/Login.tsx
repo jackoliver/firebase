@@ -40,7 +40,7 @@ const STYLES = {
 
 export const Login = () => {
   // TODO: use the useAuth hook to get the login function
-  const { user } = useAuth();
+  const { user, login } = useAuth();
   const [values, setValues] = useState({
     ...INITIAL_VALUES,
   });
@@ -48,7 +48,7 @@ export const Login = () => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     // Replace me with a call to the AuthProvider's login method
-    alert(JSON.stringify(values));
+    login(values);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

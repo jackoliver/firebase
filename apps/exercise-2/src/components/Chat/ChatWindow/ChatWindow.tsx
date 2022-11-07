@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 
-import { DocumentData, getFirestore } from '@firebase/firestore';
+import {
+  DocumentData,
+  getFirestore,
+  query,
+  collection,
+  orderBy,
+  onSnapshot,
+} from '@firebase/firestore';
 
 import { ZeroMessages } from 'components';
 
@@ -15,11 +22,27 @@ export const ChatWindow = () => {
   useEffect(() => {
     // Get the firestore instance
     const db = getFirestore();
+
     // Query 'messages' collection ordered by timestamp (asc)
+    const q = query(collection(db, 'messages'), orderBy('timestamp', 'asc'));
+
+    // Format the document to add the ID
+    const formatDoc = (doc: any) => ({
+      id: doc.id,
+      ...doc.data(),
+    });
+
+    // Map the snapshot and set to state
+    const doSomethingWithSnapshot = (querySnapshot: any) => {
+      const data = querySnapshot.docs.map(formatDoc);
+      setMessagesData(data);
+    };
 
     // Subscribe to messages collection (use onSnapshot) and set the messagesData state variable
+    const unsubscribe = onSnapshot(q, doSomethingWithSnapshot);
 
     // Don't forget a cleanup function to unsuscribe from the collection
+    return () => unsubscribe();
   }, []);
 
   useEffect(() => {
